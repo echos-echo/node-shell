@@ -1,6 +1,7 @@
 const pwd = require('./pwd');
 const ls = require('./ls');
 const cat = require('./cat');
+const { curl } = require('./curl');
 
 process.stdout.write('prompt > ');
 
@@ -16,5 +17,7 @@ process.stdin.on('data', (data) => {
         cat.cat(cmdArr[1]);
         // some function goes here
         // cat(cmdArr[1]) -> cmdArr should be the filename to be read
+    } else if (cmdArr[0] === 'curl') {
+        curl(cmdArr[1]);
     }
 });
